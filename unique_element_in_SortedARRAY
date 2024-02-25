@@ -1,0 +1,62 @@
+#include <iostream>
+#include<vector>
+using namespace std ;
+
+/*
+  we have to find out the no. of unique pairs int the vector (given in the increasing order )
+  whose sum == target (here X) enterd by user 
+
+*/
+
+int main()
+{
+    int size ;
+    cout<<"enter the size : ";
+    cin >>size ;
+    cout <<"enter the element :";
+    vector <int> v(size);
+    for (int i =0 ;i<size ;i++)
+    {
+        cin >>v[i];
+    };
+    cout <<endl ;
+    cout <<"your elements are : ";
+    for (int j =0 ;j<size ;j++)
+    {
+        cout <<v[j]<<" ";
+    };
+    //code for unique pair but on basis of the indexes
+    int p =0, q=size -1;
+    int x ;
+    cout <<endl ;
+    cout <<"enter the target ";
+    cin >>x;
+    int count =0;
+    int flag =false ;//to know if dont exits 
+    while (p<q)
+    {
+        if (v[p]+v[q]==x)
+        {
+            cout <<"("<<v[p]<<" "<<v[q]<<")"<<"\n";
+            cout <<count ;
+            flag++;
+            p++;
+            q--;
+        }
+        else if (v[p]+v[q]<x)//if the sum is less than X we will increase the left ptr (p)
+        {
+            p++;
+
+        }
+        else if (v[p]+v[q]>x)//if sum is more we decrease the right ptr (q)
+        {
+            q--;
+        }
+    }
+    cout <<endl ;
+    cout <<flag ;//will tell us if exist give one oe else false 
+    
+    
+    
+
+}
