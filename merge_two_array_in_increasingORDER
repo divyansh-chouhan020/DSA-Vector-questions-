@@ -1,0 +1,102 @@
+/*
+
+WE are given two  array arr1[] and arr2[] in the increasing order 
+write a code to merge the array 1 and 2 in the new array which is also in the 
+increasing order 
+
+*/
+#include <iostream>
+#include <vector>
+using namespace std ;
+int main()
+
+{
+    int m , n ;
+    cout <<"enter the size : ";
+    cin >> m >>n;
+
+    vector<int> v1(m);
+     vector<int> v2(n);
+    
+     
+     //taking inputs from the user for vector v1 
+     cout <<"enter element for  vector v1: ";
+     for (int i =0 ;i<v1.size(); i++)
+     {
+        cin >>v1[i];
+     }
+     
+     //displaying input (using for each loop )
+     for (int each : v1)
+     {
+        cout <<each <<" ";
+     }
+     
+      //taking inputs from the user for vector v2
+      cout <<"enter element for vector v2 :";
+     for (int i =0 ;i<v2.size(); i++)
+     {
+        cin >>v2[i];
+     }
+    
+     //displaying input (using for each loop )
+     for (int each : v2)
+     {
+        cout <<each <<" ";
+     }
+
+     //initialising vector" new_sorted" 
+     vector <int> new_sorted (m+n) ;
+
+     //taking the pointer that will iterates 
+     int p =0 ;
+     int q =0, k=0;
+
+     while (p<m and q<n )
+     {
+         if (v1[p]<v2[q])
+         {
+            new_sorted[k]=v1[p];
+            k++;
+            p++;
+         }
+         else 
+         {
+            new_sorted[k]=v2[q];
+            k++;
+            q++;
+         }
+
+
+     }
+     // now we are printing all element in any array left after comparison 
+     while (p<m)
+     {
+       new_sorted[k]=v1[p];
+       k++;
+       p++;
+     };
+     //this is for v2 array
+     while  (q<n)
+     {
+      new_sorted[k]=v2[q];
+       k++;
+       q++;
+       
+     }
+     //displaying 
+     cout <<"merge ele are :";
+     for (int ele : new_sorted)
+     {
+      cout <<ele <<" ";
+     }
+
+
+
+
+}
+
+
+
+
+
